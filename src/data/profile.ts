@@ -82,7 +82,7 @@ export const profile: Profile = {
     {
       company: "Culinda Inc.",
       role: "Machine Learning Engineer",
-      location: "Remote (Frisco, TX, USA)",
+      location: "Remote (India)",
       period: "Jun 2023 – Present",
       bullets: [
         "Developing and deploying advanced ML models to address complex business challenges and optimize data utilization.",
@@ -97,7 +97,7 @@ export const profile: Profile = {
     {
       company: "Culinda Inc.",
       role: "Data Science Intern",
-      location: "Frisco, TX, USA (Remote)",
+      location: "India (Remote)",
       period: "Nov 2022 – Jun 2023",
       bullets: [
         "Supported ML/NLP prototyping and data preparation for production workflows.",
