@@ -7,6 +7,9 @@ export default async function OpengraphImage() {
   const subtitle =
     process.env.NEXT_PUBLIC_SUMMARY ||
     "Machine Learning Engineer — GenAI, Agentic/RAG Systems";
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
   return new ImageResponse(
     {
@@ -42,26 +45,22 @@ export default async function OpengraphImage() {
             props: {
               style: { marginTop: 32, display: "flex", alignItems: "center", gap: 12 },
               children: [
+                // Profile avatar pulled from public folder
                 {
-                  type: "div",
+                  type: "img",
                   props: {
+                    src: `${siteUrl}/profile.jpeg`,
+                    width: 72,
+                    height: 72,
                     style: {
                       height: 72,
                       width: 72,
                       borderRadius: 999,
+                      objectFit: "cover",
+                      border: "2px solid #262626",
                       background: "#171717",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 28,
-                      fontWeight: 700,
                     },
-                    children: name
-                      .split(" ")
-                      .filter(Boolean)
-                      .slice(0, 2)
-                      .map((n) => n[0]?.toUpperCase())
-                      .join(""),
+                    alt: `${name} avatar`,
                   },
                 },
                 {
