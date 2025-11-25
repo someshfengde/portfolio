@@ -113,8 +113,7 @@ export function SkillConstellation() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="absolute inset-0 rounded-xl border-2 border-current pointer-events-none"
-                  style={{ borderColor: `var(--tw-text-opacity)` }}
+                  className="absolute inset-0 rounded-xl border-2 border-foreground/30 pointer-events-none"
                 />
               )}
             </motion.button>
