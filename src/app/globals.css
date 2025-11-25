@@ -93,6 +93,11 @@ html {
     0 0 20px -5px rgba(99, 102, 241, 0.1);
 }
 
+/* Project card gradient overlay */
+.project-card-overlay {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(34, 211, 238, 0.05) 100%);
+}
+
 /* Animated gradient button */
 .gradient-btn {
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));

@@ -32,12 +32,7 @@ export function ProjectsSection() {
                 className="group relative rounded-2xl hover-card p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 cursor-pointer h-full flex flex-col overflow-hidden"
               >
                 {/* Gradient accent on hover */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(34, 211, 238, 0.05) 100%)'
-                  }}
-                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none project-card-overlay" />
                 
                 {/* Project number indicator */}
                 <div className="absolute top-4 right-4 text-6xl font-bold text-foreground/[0.03] group-hover:text-primary/10 transition-colors">
