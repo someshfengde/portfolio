@@ -85,11 +85,21 @@ export const profile: Profile = {
     x: "https://twitter.com/Someshfengde",
   },
   experience: [
+      {
+      company: "Springer Nature",
+      role: "AI Engineer",
+      location: "Pune, India",
+      period: "Oct 2025 - Present",
+      bullets: [
+        "Building and deploying advanced AI solutions to address complex researchers queries and optimize data utilization.",
+        "Driving R&D initiatives to explore and productionize the latest in AI/ML, keeping Springer Nature at the forefront.",
+      ],
+    },
     {
       company: "Culinda Inc.",
       role: "Machine Learning Engineer",
       location: "Remote (India)",
-      period: "Jun 2023 – Present",
+      period: "Jun 2023 – Oct 2025",
       bullets: [
         "Developing and deploying advanced ML models to address complex business challenges and optimize data utilization.",
         "Driving R&D initiatives to explore and productionize the latest in AI/ML, keeping Culinda at the forefront.",
