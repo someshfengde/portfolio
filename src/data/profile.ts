@@ -16,6 +16,12 @@ export type ProjectItem = {
   tagline?: string;
   tech: string[];
   description: string;
+  status?: string;
+  company?: string;
+  role?: string;
+  year?: string;
+  overview?: string;
+  highlights?: string[];
   links?: SocialLink[];
 };
 
@@ -117,27 +123,47 @@ export const profile: Profile = {
   ],
   projects: [
     {
-      name: "Darkwatch — AI Risk Remediation (RAG)",
-      tagline: "RAG + LLM-guided remediations for security threats",
+      name: "Night Hawk — Agentic Data Intelligence Platform",
+      tagline: "Streaming agentic analytics for hospital threat hunting",
       tech: [
-        "Python",
+        "GPT-4o",
+        "OpenAI Agents SDK",
         "FastAPI",
-        "Weaviate/Qdrant",
-        "LlamaIndex",
-        "OpenAI",
+        "WebSockets",
         "MongoDB",
-        "Docker",
-        "LangFuse",
+        "Plotly",
+        "Langfuse",
       ],
       description:
-        "Ingests unstructured documents into a vector DB and powers retrieval + LLM-guided remediation workflows for cybersecurity use cases.",
+        "Orchestrates sub-agents across MongoDB + SQL backends to return live dashboards for cybersecurity analysts.",
+      status: "Active",
+      company: "Culinda Inc.",
+      role: "AI Engineering Manager",
+      year: "2025",
+      overview:
+        "Led the build of Night Hawk, a guardrailed agentic platform that coordinates DB + visualization agents over FastAPI/WebSockets to stream incremental Plotly insights for hospital threat analysis.",
+      highlights: ["Real-time threat analysis", "Schema-compliant guardrails", "Streaming query responses"],
     },
     {
-      name: "NightHawk — Conversational DB Intelligence",
-      tagline: "Natural-language analytics over multi-DB backends",
-      tech: ["PostgreSQL", "OpenAI Agents SDK", "MongoDB", "SQL"],
+      name: "Dark Watch — AI Remediation Assistant",
+      tagline: "LLM co-pilot delivering SOC-grade fixes",
+      tech: [
+        "GPT-4o",
+        "LlamaIndex",
+        "Vector Search",
+        "REST API",
+        "Slack",
+        "Jira",
+      ],
       description:
-        "Dynamic router chooses MongoDB vs SQL; streams answers with inline visuals for BI-like experiences.",
+        "Agent bridges SOC tooling, retrieving context and walking analysts through prescriptive remediation steps.",
+      status: "Completed",
+      company: "Culinda Inc.",
+      role: "AI Engineering Manager",
+      year: "2024",
+      overview:
+        "Architected Dark Watch, an LLM-first remediation assistant with contextual retrieval, web lookups, and CLI/REST surfaces embedded into Culinda SOC workflows.",
+      highlights: ["Automated incident remediation", "Contextual threat analysis", "SOC workflow integration"],
     },
     {
       name: "Academic RAG Chatbot",
@@ -145,6 +171,17 @@ export const profile: Profile = {
       tech: ["React", "FastAPI", "LlamaIndex", "Llama-3.2-70B", "Cohere"],
       description:
         "Precise retrieval over university Q&A content with a multi-modal UX.",
+      status: "Beta",
+      company: "Freelance",
+      role: "LLM Engineer",
+      year: "2024",
+      overview:
+        "Deployed a privacy-safe campus copilot that blends realtime speech capture, localized vector search, and structured answer plans for students and faculty.",
+      highlights: [
+        "Voice + text parity with <800 ms perceived latency",
+        "Dynamic prompt graphs for citation-grounded replies",
+        "Self-serve content ingestion for departments",
+      ],
     },
     {
       name: "litescript",
@@ -152,6 +189,16 @@ export const profile: Profile = {
       tech: ["Python"],
       description:
         "Utility package to speed up prototyping with sane defaults (logging, imports).",
+      status: "Open Source",
+      company: "Personal",
+      role: "Creator",
+      year: "2023",
+      overview:
+        "Built a minimal Python helper layer bundling logging, CLI parsing, tracing stubs, and experiment tracking hooks to bootstrap ML playgrounds under 30 seconds.",
+      highlights: [
+        "Cuts boilerplate in hackathon scripts by ~40%",
+        "Configurable logging + tracing primitives out of the box",
+      ],
       links: [{ label: "GitHub", href: "https://github.com/someshfengde" }],
     },
     {
@@ -159,6 +206,16 @@ export const profile: Profile = {
       tagline: "Streamlit UI for comparing GPT models",
       tech: ["Python", "Streamlit"],
       description: "Interactive comparison across GPT model variants.",
+      status: "Active",
+      company: "Personal",
+      role: "Creator",
+      year: "2023",
+      overview:
+        "Shipped a Streamlit playground that benchmarks GPT variants across prompts, grading outputs with rubric scores and latency capture for product teams.",
+      highlights: [
+        "Side-by-side diff view with persona-aware scoring",
+        "Pluggable evaluators (LLM-as-judge, regex, heuristics)",
+      ],
       links: [{ label: "GitHub", href: "https://github.com/someshfengde" }],
     },
   ],
