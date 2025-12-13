@@ -8,14 +8,15 @@ type BadgeProps = {
 };
 
 export function Badge({ children, variant = "default" }: BadgeProps) {
+  // Styles are now handled by CSS classes for better consistency and customization
   const variants = {
     default: "tech-badge",
-    primary: "bg-primary/20 border-primary/40 text-primary-light",
-    secondary: "bg-secondary/20 border-secondary/40 text-secondary",
+    primary: "bg-primary/10 text-primary-light",
+    secondary: "bg-secondary/10 text-secondary",
   };
 
   return (
-    <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs sm:text-sm border ${variants[variant]}`}>
+    <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs sm:text-sm font-medium ${variants[variant]}`}>
       {children}
     </span>
   );
