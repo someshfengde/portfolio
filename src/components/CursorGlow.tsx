@@ -25,8 +25,8 @@ export function CursorGlow() {
     };
 
     const animate = () => {
-      position.x = lerp(position.x, target.x, 0.15);
-      position.y = lerp(position.y, target.y, 0.15);
+      position.x = lerp(position.x, target.x, 0.12);
+      position.y = lerp(position.y, target.y, 0.12);
       dot.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
       rafId = requestAnimationFrame(animate);
     };
@@ -50,7 +50,7 @@ export function CursorGlow() {
     };
   }, []);
 
-  const size = 260; // diameter of the glow
+  const size = 300;
 
   return (
     <div
@@ -72,9 +72,9 @@ export function CursorGlow() {
           height: size,
           borderRadius: 9999,
           background:
-            "radial-gradient(closest-side, rgba(56,189,248,0.18), rgba(99,102,241,0.10) 40%, transparent 60%)",
-          filter: "blur(24px)",
-          opacity: 0.9,
+            "radial-gradient(closest-side, rgba(139,92,246,0.15), rgba(6,182,212,0.08) 50%, transparent 70%)",
+          filter: "blur(30px)",
+          opacity: 0.8,
           mixBlendMode: "screen",
         }}
       />
