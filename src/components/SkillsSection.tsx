@@ -1,37 +1,68 @@
+"use client";
+
 import { Section } from "@/components/Section";
 import { Badge } from "@/components/Badge";
 import profile from "@/data/profile";
-import { Reveal, StaggerList, StaggerItem } from "@/components/animations";
+import { motion } from "framer-motion";
+import {
+  FaCode,
+  FaBrain,
+  FaPython,
+  FaServer,
+  FaTools,
+  FaDatabase,
+  FaDocker,
+  FaChartBar
+} from "react-icons/fa";
+
+const skillCategories = [
+  { key: "languages", title: "Languages", icon: FaCode },
+  { key: "core", title: "Core Expertise", icon: FaBrain },
+  { key: "pythonMl", title: "Python / ML", icon: FaPython },
+  { key: "frameworks", title: "Frameworks", icon: FaServer },
+  { key: "webTools", title: "Web / Tools", icon: FaTools },
+  { key: "databases", title: "Databases", icon: FaDatabase },
+  { key: "infra", title: "Infra / MLOps", icon: FaDocker },
+  { key: "dataViz", title: "Data Viz", icon: FaChartBar },
+];
 
 export function SkillsSection() {
   const s = profile.skills;
+
   return (
     <Section id="skills" title="Skills">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <Reveal><SkillGroup title="Languages" items={s.languages} /></Reveal>
-        <Reveal delay={0.05}><SkillGroup title="Core" items={s.core} /></Reveal>
-        <Reveal delay={0.1}><SkillGroup title="Python / ML" items={s.pythonMl} /></Reveal>
-        <Reveal delay={0.15}><SkillGroup title="Frameworks" items={s.frameworks} /></Reveal>
-        <Reveal delay={0.2}><SkillGroup title="Web / Tools" items={s.webTools} /></Reveal>
-        <Reveal delay={0.25}><SkillGroup title="Databases" items={s.databases} /></Reveal>
-        <Reveal delay={0.3}><SkillGroup title="Infra / MLOps" items={s.infra} /></Reveal>
-        <Reveal delay={0.35}><SkillGroup title="Data Viz" items={s.dataViz} /></Reveal>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {skillCategories.map((category, index) => {
+          const items = s[category.key as keyof typeof s];
+          const Icon = category.icon;
+
+          return (
+            <motion.div
+              key={category.key}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="glass-card rounded-xl p-6 hover:bg-white/5 transition-colors"
+            >
+              {/* Header */}
+              <div className="flex items-center gap-3 mb-4">
+                <Icon className="text-foreground/40 text-lg" />
+                <h4 className="font-medium text-foreground/90 text-sm tracking-wide uppercase">
+                  {category.title}
+                </h4>
+              </div>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2">
+                {items.map((item) => (
+                  <Badge key={item}>{item}</Badge>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </Section>
   );
 }
-
-function SkillGroup({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div>
-      <h4 className="text-sm font-medium text-foreground/80">{title}</h4>
-      <div className="mt-2 flex flex-wrap gap-2">
-        {items.map((i) => (
-          <Badge key={i}>{i}</Badge>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-

@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "@/components/Section";
 import { Badge } from "@/components/Badge";
 import profile from "@/data/profile";
-import { StaggerList, StaggerItem } from "@/components/animations";
+import { FaArrowRight, FaTimes, FaExternalLinkAlt } from "react-icons/fa";
+
+const statusStyles: Record<string, string> = {
+  Active: "status-active",
+  Completed: "status-completed",
+  Beta: "status-beta",
+  "Open Source": "status-opensource",
+};
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<(typeof profile.projects)[number] | null>(null);
@@ -13,135 +20,193 @@ export function ProjectsSection() {
   const closeProject = () => setSelectedProject(null);
 
   return (
-    <Section id="projects" title="Projects" subtitle="Selected work across GenAI, RAG, and data products">
-      <StaggerList>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {profile.projects.map((p) => (
-            <StaggerItem key={p.name}>
-              <article
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelectedProject(p)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    setSelectedProject(p);
-                  }
-                }}
-                className="rounded-lg border border-foreground/10 p-5 hover:bg-foreground/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 cursor-pointer h-full flex flex-col"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <h3 className="text-lg font-semibold tracking-tight">{p.name}</h3>
-                    {p.tagline ? (
-                      <p className="mt-1 text-sm text-foreground/70">{p.tagline}</p>
-                    ) : null}
-                  </div>
-                  {p.status ? (
-                    <span className="rounded-full border border-foreground/15 px-3 py-1 text-xs font-medium uppercase tracking-wide text-foreground/70">
-                      {p.status}
-                    </span>
-                  ) : null}
-                </div>
-                {p.tagline ? (
-                  <p className="sr-only">{p.tagline}</p>
-                ) : null}
-                <p className="mt-3 text-sm text-foreground/80 line-clamp-3">{p.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.tech.map((t) => (
-                    <Badge key={t}>{t}</Badge>
-                  ))}
-                </div>
-                {p.links && p.links.length > 0 ? (
-                  <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                    {p.links.map((l) => (
-                      <a key={l.href} className="underline underline-offset-4 hover:no-underline" href={l.href} target="_blank">
-                        {l.label} ↗
-                      </a>
-                    ))}
-                  </div>
-                ) : null}
-                <div className="mt-5 flex items-center justify-between text-sm text-primary">
-                  <span className="font-medium">View project</span>
-                  <span aria-hidden>↗</span>
-                </div>
-              </article>
-            </StaggerItem>
-          ))}
-        </div>
-      </StaggerList>
+    <Section id="projects" title="Selected Work" subtitle="A selection of projects I've worked on">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {profile.projects.map((p, index) => (
+          <motion.article
+            key={p.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            role="button"
+            tabIndex={0}
+            onClick={() => setSelectedProject(p)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setSelectedProject(p);
+              }
+            }}
+            className="glass-card rounded-xl p-8 cursor-pointer group h-full flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between gap-4 mb-6">
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold tracking-tight text-foreground/90 group-hover:text-foreground transition-colors">
+                  {p.name}
+                </h3>
+                {p.tagline && (
+                  <p className="mt-1 text-sm text-foreground/60 font-light">{p.tagline}</p>
+                )}
+              </div>
+            </div>
 
-      {selectedProject ? (
-        <div className="fixed inset-0 z-40 flex items-center justify-center px-4 py-6">
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={closeProject} />
-          <div className="relative z-10 w-full max-w-3xl rounded-2xl border border-foreground/10 bg-background p-6 shadow-2xl">
-            <button
-              aria-label="Close project details"
+            {/* Description */}
+            <p className="text-sm text-foreground/70 line-clamp-3 mb-6 flex-1 leading-relaxed">
+              {p.description}
+            </p>
+
+            {/* Tech stack */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {p.tech.slice(0, 4).map((t) => (
+                <Badge key={t}>{t}</Badge>
+              ))}
+              {p.tech.length > 4 && (
+                <span className="text-xs text-foreground/40 self-center px-2">+{p.tech.length - 4}</span>
+              )}
+            </div>
+
+            {/* Footer */}
+            <div className="flex items-center justify-between pt-6 border-t border-white/5">
+              <div className="flex items-center gap-3">
+                {p.year && (
+                  <span className="text-xs text-foreground/40 font-mono">{p.year}</span>
+                )}
+              </div>
+              <div className="flex items-center gap-2 text-foreground/80 text-sm group-hover:gap-3 transition-all">
+                <span>Details</span>
+                <FaArrowRight className="text-xs opacity-70" />
+              </div>
+            </div>
+          </motion.article>
+        ))}
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-background/80 backdrop-blur-md"
               onClick={closeProject}
-              className="absolute right-4 top-4 rounded-full border border-foreground/20 px-3 py-1 text-xs font-medium uppercase tracking-[0.3em] text-foreground/60 hover:bg-foreground/5"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative z-10 w-full max-w-3xl glass-card rounded-2xl p-8 sm:p-10 max-h-[90vh] overflow-y-auto border border-white/10 shadow-2xl bg-[#0a0a0a]"
             >
-              Close
-            </button>
-            <div className="space-y-4">
-              <div className="space-y-2 pr-16">
-                <p className="text-xs font-medium uppercase tracking-[0.3em] text-foreground/50">
+              {/* Close button */}
+              <button
+                aria-label="Close project details"
+                onClick={closeProject}
+                className="absolute right-6 top-6 w-8 h-8 rounded-full flex items-center justify-center text-foreground/40 hover:text-foreground hover:bg-white/5 transition-all"
+              >
+                <FaTimes />
+              </button>
+
+              <div className="space-y-8">
+                {/* Meta info */}
+                <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-foreground/40 uppercase tracking-widest">
                   {[selectedProject.role, selectedProject.company, selectedProject.year]
                     .filter(Boolean)
                     .join(" • ")}
-                </p>
-                <h3 className="text-2xl font-semibold tracking-tight">{selectedProject.name}</h3>
-                {selectedProject.tagline ? (
-                  <p className="text-base text-foreground/70">{selectedProject.tagline}</p>
-                ) : null}
-              </div>
-              {selectedProject.status ? (
-                <div className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-foreground/70">
-                  <span className="h-2 w-2 rounded-full bg-gradient-to-r from-primary to-primary/70" />
-                  {selectedProject.status}
                 </div>
-              ) : null}
-              {selectedProject.overview ? (
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/60">Project overview</p>
-                  <p className="text-base text-foreground/80">{selectedProject.overview}</p>
+
+                {/* Title */}
+                <div className="space-y-2 pr-12">
+                  <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+                    {selectedProject.name}
+                  </h3>
+                  {selectedProject.tagline && (
+                    <p className="text-lg text-foreground/60 font-light">{selectedProject.tagline}</p>
+                  )}
                 </div>
-              ) : null}
-              {selectedProject.highlights && selectedProject.highlights.length > 0 ? (
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/60">Key impact</p>
-                  <ul className="list-disc space-y-1 pl-5 text-foreground/80">
-                    {selectedProject.highlights.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              <div className="space-y-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/60">Technologies & tools</p>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tech.map((t) => (
-                    <Badge key={t}>{t}</Badge>
-                  ))}
-                </div>
-              </div>
-              {selectedProject.links && selectedProject.links.length > 0 ? (
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/60">Links</p>
-                  <div className="flex flex-wrap gap-3 text-sm">
-                    {selectedProject.links.map((l) => (
-                      <a key={l.href} className="underline underline-offset-4 hover:no-underline" href={l.href} target="_blank">
-                        {l.label} ↗
-                      </a>
+
+                {/* Status */}
+                {selectedProject.status && (
+                  <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ${statusStyles[selectedProject.status] || "tech-badge"}`}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                    {selectedProject.status}
+                  </span>
+                )}
+
+                <div className="w-full h-px bg-white/5" />
+
+                {/* Overview */}
+                {selectedProject.overview && (
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold uppercase tracking-widest text-foreground/40">
+                      Overview
+                    </h4>
+                    <p className="text-foreground/80 leading-relaxed text-lg font-light">
+                      {selectedProject.overview}
+                    </p>
+                  </div>
+                )}
+
+                {/* Highlights */}
+                {selectedProject.highlights && selectedProject.highlights.length > 0 && (
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold uppercase tracking-widest text-foreground/40">
+                      Key Impact
+                    </h4>
+                    <ul className="grid grid-cols-1 gap-3">
+                      {selectedProject.highlights.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-foreground/70">
+                          <span className="mt-2 w-1 h-1 rounded-full bg-foreground/30 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Technologies */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-semibold uppercase tracking-widest text-foreground/40">
+                    Stack
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tech.map((t) => (
+                      <Badge key={t}>{t}</Badge>
                     ))}
                   </div>
                 </div>
-              ) : null}
-            </div>
-          </div>
-        </div>
-      ) : null}
+
+                {/* Links */}
+                {selectedProject.links && selectedProject.links.length > 0 && (
+                  <div className="pt-6 mt-6 border-t border-white/5">
+                    <div className="flex flex-wrap gap-4">
+                      {selectedProject.links.map((l) => (
+                        <a
+                          key={l.href}
+                          href={l.href}
+                          target="_blank"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors underline underline-offset-4"
+                        >
+                          {l.label}
+                          <FaExternalLinkAlt className="text-[10px] opacity-50" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 }
-
-

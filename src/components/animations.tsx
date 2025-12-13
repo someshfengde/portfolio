@@ -38,27 +38,3 @@ export function Reveal({ children, delay = 0 }: { children: React.ReactNode; del
     </motion.div>
   );
 }
-
-export function StaggerList({ as = "div", children }: { as?: "div" | "ul"; children: React.ReactNode }) {
-  const Comp: any = motion[as as "div"] ?? motion.div;
-  return (
-    <Comp
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
-      variants={staggerContainer}
-    >
-      {children}
-    </Comp>
-  );
-}
-
-export function StaggerItem({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <motion.div variants={fadeInUp} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-
