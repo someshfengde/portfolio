@@ -60,5 +60,3 @@ export function StaggerItem({ children, className = "" }: { children: React.Reac
     </motion.div>
   );
 }
-
-

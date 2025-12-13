@@ -274,5 +274,3 @@ export const profile: Profile = {
 };
 
 export default profile;
-
-
