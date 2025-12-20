@@ -1,21 +1,21 @@
-import { Hero } from "@/components/Hero";
-import { ExperienceSection } from "@/components/ExperienceSection";
-import { ProjectsSection } from "@/components/ProjectsSection";
-import { SkillsSection } from "@/components/SkillsSection";
-import { CertificationsSection } from "@/components/CertificationsSection";
-import { WritingSection } from "@/components/WritingSection";
-import { Footer } from "@/components/Footer";
+import { GameHero } from "@/components/GameHero";
+import { QuestProjects } from "@/components/QuestProjects";
+import { TimelineExperience } from "@/components/TimelineExperience";
+import { SkillConstellation } from "@/components/SkillConstellation";
+import { AchievementBadges } from "@/components/AchievementBadges";
+import { WritingHub } from "@/components/WritingHub";
+import { GameFooter } from "@/components/GameFooter";
 
 export default function Home() {
   return (
     <div className="font-sans">
-      <Hero />
-      <ProjectsSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <CertificationsSection />
-      <WritingSection />
-      <Footer />
+      <GameHero />
+      <QuestProjects />
+      <TimelineExperience />
+      <SkillConstellation />
+      <AchievementBadges />
+      <WritingHub />
+      <GameFooter />
     </div>
   );
 }
