@@ -1,4 +1,3 @@
-import Link from "next/link";
 import profile from "@/data/profile";
 import { Socials } from "@/components/Socials";
 

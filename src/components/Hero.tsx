@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import profile from "@/data/profile";
 import { Socials } from "@/components/Socials";
 import { Reveal } from "@/components/animations";
@@ -88,20 +87,20 @@ export function Hero() {
 
           <div className="flex flex-wrap items-center gap-3">
             <Reveal>
-              <Link
+              <a
                 className="rounded-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-2.5 text-sm font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
                 href="#projects"
               >
                 View Projects
-              </Link>
+              </a>
             </Reveal>
             <Reveal delay={0.05}>
-              <Link
+              <a
                 className="inline-flex items-center rounded-full border-2 border-primary/30 px-6 py-2.5 text-sm font-medium hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
                 href={"mailto:" + profile.email}
               >
                 Contact
-              </Link>
+              </a>
             </Reveal>
             <Reveal delay={0.1}>
               <button
