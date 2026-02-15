@@ -46,6 +46,6 @@ html {
 /* Section divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--foreground, #171717) 15%, var(--foreground, #171717) 50%, transparent);
+  background: linear-gradient(to right, transparent, var(--foreground) 15%, var(--foreground) 50%, transparent);
   opacity: 0.08;
 }
