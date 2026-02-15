@@ -11,14 +11,20 @@ const links = [
 
 export function Nav() {
   return (
-    <nav className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/70 bg-background/90 border-b border-foreground/10">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 h-14 flex items-center justify-between gap-4">
-        <Link href="#" className="font-medium">Somesh</Link>
-        <ul className="hidden sm:flex items-center gap-5 text-sm">
+    <nav className="sticky top-0 z-40 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 bg-background/95 border-b border-primary/10 shadow-sm">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 h-16 flex items-center justify-between gap-4">
+        <Link href="#" className="font-bold text-lg bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+          Somesh
+        </Link>
+        <ul className="hidden sm:flex items-center gap-6 text-sm font-medium">
           {links.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className="text-foreground/80 hover:text-foreground">
+              <Link
+                href={l.href}
+                className="text-foreground/70 hover:text-primary transition-colors duration-200 relative group"
+              >
                 {l.label}
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </Link>
             </li>
           ))}

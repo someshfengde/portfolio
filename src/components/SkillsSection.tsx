@@ -23,9 +23,9 @@ export function SkillsSection() {
 
 function SkillGroup({ title, items }: { title: string; items: string[] }) {
   return (
-    <div>
-      <h4 className="text-sm font-medium text-foreground/80">{title}</h4>
-      <div className="mt-2 flex flex-wrap gap-2">
+    <div className="rounded-xl border-2 border-primary/20 bg-gradient-to-br from-card-bg to-background p-5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+      <h4 className="text-base font-bold text-foreground/90 mb-3">{title}</h4>
+      <div className="flex flex-wrap gap-2">
         {items.map((i) => (
           <Badge key={i}>{i}</Badge>
         ))}
