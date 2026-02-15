@@ -28,7 +28,7 @@ export function ProjectsSection() {
                     setSelectedProject(p);
                   }
                 }}
-                className="rounded-lg border border-foreground/10 p-5 hover:bg-foreground/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 cursor-pointer h-full flex flex-col"
+                className="group rounded-xl border border-foreground/10 p-6 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 cursor-pointer h-full flex flex-col"
               >
                 <div className="flex items-center justify-between gap-4">
                   <div>
@@ -38,7 +38,7 @@ export function ProjectsSection() {
                     ) : null}
                   </div>
                   {p.status ? (
-                    <span className="rounded-full border border-foreground/15 px-3 py-1 text-xs font-medium uppercase tracking-wide text-foreground/70">
+                    <span className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-accent">
                       {p.status}
                     </span>
                   ) : null}
@@ -61,9 +61,9 @@ export function ProjectsSection() {
                     ))}
                   </div>
                 ) : null}
-                <div className="mt-5 flex items-center justify-between text-sm text-primary">
-                  <span className="font-medium">View project</span>
-                  <span aria-hidden>↗</span>
+                <div className="mt-5 flex items-center justify-between text-sm text-accent">
+                  <span className="font-medium group-hover:underline">View project</span>
+                  <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
                 </div>
               </article>
             </StaggerItem>
@@ -74,7 +74,7 @@ export function ProjectsSection() {
       {selectedProject ? (
         <div className="fixed inset-0 z-40 flex items-center justify-center px-4 py-6">
           <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={closeProject} />
-          <div className="relative z-10 w-full max-w-3xl rounded-2xl border border-foreground/10 bg-background p-6 shadow-2xl">
+          <div className="relative z-10 w-full max-w-3xl rounded-2xl border border-foreground/10 bg-background p-8 shadow-2xl shadow-accent/5">
             <button
               aria-label="Close project details"
               onClick={closeProject}

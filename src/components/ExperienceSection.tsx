@@ -8,10 +8,10 @@ export function ExperienceSection() {
       <StaggerList as="ul">
         {profile.experience.map((item) => (
           <StaggerItem key={`${item.company}-${item.role}`} className="mb-6 last:mb-0">
-            <li className="rounded-md border border-foreground/10 p-6">
+            <li className="rounded-lg border border-foreground/10 p-6 border-l-4 border-l-accent/60 hover:shadow-md transition-shadow">
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <h3 className="text-lg font-medium">
-                  {item.role} · <span className="text-foreground/80">{item.company}</span>
+                <h3 className="text-lg font-semibold">
+                  {item.role} · <span className="text-foreground/70">{item.company}</span>
                 </h3>
                 <div className="text-sm text-foreground/60">{item.period}</div>
               </div>

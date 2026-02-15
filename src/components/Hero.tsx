@@ -45,29 +45,30 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="w-full bg-gradient-to-b from-background to-background/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20">
+    <section className="relative w-full overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-secondary/5" aria-hidden />
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-20 sm:py-28">
         <div className="flex flex-col gap-8 sm:gap-10">
           <div className="flex items-start justify-between gap-6">
             <div>
               <Reveal>
-                <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight">
-                  {profile.name}
+                <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">
+                  <span className="gradient-text">{profile.name}</span>
                 </h1>
               </Reveal>
               <Reveal delay={0.05}>
-                <p className="mt-2 text-lg sm:text-xl text-foreground/80">
+                <p className="mt-3 text-lg sm:text-xl text-foreground/70 font-medium">
                   {profile.title}
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
-                <p className="mt-3 text-sm text-foreground/70">
-                  {profile.location}
+                <p className="mt-2 text-sm text-foreground/50 flex items-center gap-1.5">
+                  <span aria-hidden>📍</span> {profile.location}
                 </p>
               </Reveal>
             </div>
-            <div className="hidden sm:flex items-center justify-center h-20 w-20 rounded-full border border-foreground/20 bg-foreground/5 shadow-sm select-none">
-              <span className="text-xl font-semibold">
+            <div className="hidden sm:flex items-center justify-center h-24 w-24 rounded-full border-2 border-accent/30 bg-gradient-to-br from-accent/10 to-accent-secondary/10 shadow-lg select-none">
+              <span className="text-2xl font-bold gradient-text">
                 {profile.name
                   .split(" ")
                   .filter(Boolean)
@@ -79,7 +80,7 @@ export function Hero() {
           </div>
 
           <Reveal>
-            <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-foreground/90">
+            <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-foreground/80">
               {profile.summary}
             </p>
           </Reveal>
@@ -87,7 +88,7 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-3">
             <Reveal>
               <Link
-                className="rounded-full bg-foreground text-background px-5 py-2 text-sm font-medium hover:opacity-90"
+                className="rounded-full bg-gradient-to-r from-accent to-accent-secondary text-white px-6 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity shadow-md"
                 href="#projects"
               >
                 View Projects
@@ -95,7 +96,7 @@ export function Hero() {
             </Reveal>
             <Reveal delay={0.05}>
               <Link
-                className="inline-flex items-center rounded-full border border-foreground/20 px-5 py-2 text-sm hover:bg-foreground/5"
+                className="inline-flex items-center rounded-full border border-foreground/20 px-6 py-2.5 text-sm font-medium hover:bg-foreground/5 transition-colors"
                 href={"mailto:" + profile.email}
               >
                 Contact
@@ -105,7 +106,7 @@ export function Hero() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-5 py-2 text-sm hover:bg-foreground/5"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-6 py-2.5 text-sm font-medium hover:bg-foreground/5 transition-colors"
                 aria-label="Copy email"
               >
                 <FaRegCopy /> {copied ? "Copied!" : "Copy email"}

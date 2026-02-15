@@ -10,10 +10,15 @@ export default function Home() {
   return (
     <div className="font-sans">
       <Hero />
+      <div className="section-divider mx-auto max-w-5xl" />
       <ProjectsSection />
+      <div className="section-divider mx-auto max-w-5xl" />
       <ExperienceSection />
+      <div className="section-divider mx-auto max-w-5xl" />
       <SkillsSection />
+      <div className="section-divider mx-auto max-w-5xl" />
       <CertificationsSection />
+      <div className="section-divider mx-auto max-w-5xl" />
       <WritingSection />
       <Footer />
     </div>
