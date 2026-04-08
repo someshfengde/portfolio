@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const profileName = process.env.NEXT_PUBLIC_NAME ?? "Somesh Fengade";
   const profileSummary =
     process.env.NEXT_PUBLIC_SUMMARY ??
-    "AI / ML Engineer — Generative AI, RAG Pipelines & Evals. Building production-grade AI with FastAPI, vector DBs, and observability (LangFuse).";
+    "AI / ML Engineer — Generative AI & RAG Systems. Building production-grade AI with Pinecone, OpenAI models, and GCP Cloud Run infrastructure.";
   return {
     metadataBase: new URL(siteUrl),
     title: `${profileName} — Portfolio`,

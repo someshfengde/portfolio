@@ -6,7 +6,7 @@ export default async function OpengraphImage() {
   const name = process.env.NEXT_PUBLIC_NAME || "Somesh Fengade";
   const subtitle =
     process.env.NEXT_PUBLIC_SUMMARY ||
-    "AI / ML Engineer — Generative AI, RAG Pipelines & Evals";
+    "AI / ML Engineer — Generative AI & RAG Systems";
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
@@ -76,4 +76,3 @@ export default async function OpengraphImage() {
     size
   );
 }
-

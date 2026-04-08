@@ -69,11 +69,11 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Somesh Fengade",
-  title: "AI / ML Engineer — Generative AI, RAG Pipelines & Evals",
+  title: "AI / ML Engineer — Generative AI & RAG Systems",
   location: "Mumbai / Pune, India",
   email: "someshfengde@gmail.com",
   summary:
-    "Results-driven AI / ML Engineer with a proven track record in building and deploying cutting-edge Generative AI and agentic systems. Expert in designing robust RAG model pipelines, evaluation frameworks, advanced LLM tooling, and scalable ML services using FastAPI and state-of-the-art vector databases. Adept at delivering production-ready solutions with strong observability (LangFuse), seamless containerization (Docker), and resilient data infrastructure (MongoDB, Postgres). Versatile across computer vision, NLP, and tabular data, I thrive on solving complex problems and driving innovation from research to real-world impact.",
+    "Results-driven AI / ML Engineer with a proven track record in shipping production Generative AI systems. Strong focus on engineering robust RAG model pipelines, OpenAI-powered workflows, and scalable services on GCP using Cloud Run and Cloud Run Jobs with Terraform. Hands-on with Pinecone, FastAPI, Docker, and data infrastructure (MongoDB, Postgres), with additional experience in experimentation and quality iteration. Versatile across computer vision, NLP, and tabular data, I thrive on solving complex problems and driving innovation from research to real-world impact.",
   links: {
     github: "https://github.com/someshfengde",
     linkedin: "https://linkedin.com/in/somesh-9188",
@@ -93,9 +93,9 @@ export const profile: Profile = {
       location: "Pune, India",
       period: "Oct 2025 - Present",
       bullets: [
-        "Contributing to Nature Research Assistant (natureresearchassistant.com), a Generative AI experience that helps researchers discover and synthesize scientific knowledge faster.",
-        "Designing and improving RAG model pipelines for stronger retrieval quality, grounded answers, and trustworthy researcher-facing outputs.",
-        "Building and running evaluation workflows for response quality, relevance, and trust to continuously improve product performance.",
+        "Building Nature Research Assistant (natureresearchassistant.com), a Generative AI product that helps researchers discover and synthesize scientific knowledge faster.",
+        "Delivered chat with multiple papers functionality and engineered RAG model pipelines using Pinecone and OpenAI models for grounded, high-utility outputs.",
+        "Owned engineering delivery across Terraform + GCP (Cloud Run, Cloud Run Jobs) and supported weekly newsletter workflows that surface relevant research insights.",
       ],
     },
     {
@@ -141,22 +141,26 @@ export const profile: Profile = {
       tech: [
         "LLMs",
         "RAG",
-        "Search",
-        "Evaluation",
-        "Product Analytics",
+        "Pinecone",
+        "OpenAI",
+        "Terraform",
+        "GCP",
+        "Cloud Run",
+        "Cloud Run Jobs",
       ],
       description:
-        "Built product-facing AI capabilities for Springer Nature’s Nature Research Assistant to improve retrieval quality, answer usefulness, and researcher experience.",
+        "Built and shipped product-facing Generative AI capabilities for Springer Nature’s Nature Research Assistant, including chat with multiple papers and production RAG infrastructure.",
       status: "Active",
       company: "Springer Nature",
-      role: "AI Engineer",
+      role: "AI / ML Engineer",
       year: "2025 - Present",
       overview:
-        "Contributed to Nature Research Assistant by improving response grounding and relevance while aligning outputs to researcher workflows and product quality expectations.",
+        "Led engineering-heavy delivery for Nature Research Assistant across model integration, retrieval infrastructure, and cloud deployment while iterating through experiments to improve researcher outcomes.",
       highlights: [
-        "Improved research query understanding and result relevance",
-        "Focused on answer quality, trust, and usability",
-        "Supported rapid iteration through product + AI experimentation",
+        "Shipped multi-paper chat experience for researcher workflows",
+        "Built RAG stack with Pinecone + OpenAI models",
+        "Deployed workloads on GCP with Terraform, Cloud Run, and Cloud Run Jobs",
+        "Supported weekly newsletter pipeline with AI-assisted research curation",
       ],
       links: [{ label: "Product", href: "https://natureresearchassistant.com/" }],
     },
