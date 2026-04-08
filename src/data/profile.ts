@@ -69,11 +69,11 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Somesh Fengade",
-  title: "Machine Learning Engineer — GenAI, Agentic/RAG Systems",
+  title: "AI / ML Engineer — Generative AI, RAG Pipelines & Evals",
   location: "Mumbai / Pune, India",
   email: "someshfengde@gmail.com",
   summary:
-    "Results-driven Machine Learning Engineer with a proven track record in building and deploying cutting-edge GenAI and agentic systems. Expert in designing robust RAG pipelines, advanced LLM tooling, and scalable ML services using FastAPI and state-of-the-art vector databases. Adept at delivering production-ready solutions with strong observability (LangFuse), seamless containerization (Docker), and resilient data infrastructure (MongoDB, Postgres). Versatile across computer vision, NLP, and tabular data, I thrive on solving complex problems and driving innovation from research to real-world impact.",
+    "Results-driven AI / ML Engineer with a proven track record in building and deploying cutting-edge Generative AI and agentic systems. Expert in designing robust RAG model pipelines, evaluation frameworks, advanced LLM tooling, and scalable ML services using FastAPI and state-of-the-art vector databases. Adept at delivering production-ready solutions with strong observability (LangFuse), seamless containerization (Docker), and resilient data infrastructure (MongoDB, Postgres). Versatile across computer vision, NLP, and tabular data, I thrive on solving complex problems and driving innovation from research to real-world impact.",
   links: {
     github: "https://github.com/someshfengde",
     linkedin: "https://linkedin.com/in/somesh-9188",
@@ -89,13 +89,13 @@ export const profile: Profile = {
   experience: [
       {
       company: "Springer Nature",
-      role: "AI Engineer",
+      role: "AI / ML Engineer",
       location: "Pune, India",
       period: "Oct 2025 - Present",
       bullets: [
-        "Contributing to Nature Research Assistant (natureresearchassistant.com), an AI experience that helps researchers discover and synthesize scientific knowledge faster.",
-        "Shaping retrieval, answer quality, and trust features so outputs remain grounded, concise, and useful for research workflows.",
-        "Driving R&D initiatives to evaluate and productionize advanced GenAI capabilities for Springer Nature research products.",
+        "Contributing to Nature Research Assistant (natureresearchassistant.com), a Generative AI experience that helps researchers discover and synthesize scientific knowledge faster.",
+        "Designing and improving RAG model pipelines for stronger retrieval quality, grounded answers, and trustworthy researcher-facing outputs.",
+        "Building and running evaluation workflows for response quality, relevance, and trust to continuously improve product performance.",
       ],
     },
     {
@@ -302,4 +302,3 @@ export const profile: Profile = {
 };
 
 export default profile;
-
