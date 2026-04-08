@@ -43,6 +43,7 @@ export type Profile = {
     github: string;
     linkedin: string;
     portfolio?: string;
+    resume?: string;
     huggingface?: string;
     wandb?: string;
     medium?: string;
@@ -77,6 +78,7 @@ export const profile: Profile = {
     github: "https://github.com/someshfengde",
     linkedin: "https://linkedin.com/in/somesh-9188",
     portfolio: "https://somesh.gitbook.io/somesh-fengade",
+    resume: "https://drive.google.com/file/d/1KiGvhRCl4p-_ixyXTA2dNgg7n5zYg0ok/view?usp=sharing",
     huggingface: "https://huggingface.co/Someshfengde",
     wandb: "https://wandb.ai/som",
     medium: "https://someshfengde.medium.com/",
@@ -91,8 +93,9 @@ export const profile: Profile = {
       location: "Pune, India",
       period: "Oct 2025 - Present",
       bullets: [
-        "Building and deploying advanced AI solutions to address complex researchers queries and optimize data utilization.",
-        "Driving R&D initiatives to explore and productionize the latest in AI/ML, keeping Springer Nature at the forefront.",
+        "Contributing to Nature Research Assistant (natureresearchassistant.com), an AI experience that helps researchers discover and synthesize scientific knowledge faster.",
+        "Shaping retrieval, answer quality, and trust features so outputs remain grounded, concise, and useful for research workflows.",
+        "Driving R&D initiatives to evaluate and productionize advanced GenAI capabilities for Springer Nature research products.",
       ],
     },
     {
@@ -132,6 +135,31 @@ export const profile: Profile = {
     },
   ],
   projects: [
+    {
+      name: "Nature Research Assistant",
+      tagline: "AI assistant for faster, reliable scientific discovery",
+      tech: [
+        "LLMs",
+        "RAG",
+        "Search",
+        "Evaluation",
+        "Product Analytics",
+      ],
+      description:
+        "Built product-facing AI capabilities for Springer Nature’s Nature Research Assistant to improve retrieval quality, answer usefulness, and researcher experience.",
+      status: "Active",
+      company: "Springer Nature",
+      role: "AI Engineer",
+      year: "2025 - Present",
+      overview:
+        "Contributed to Nature Research Assistant by improving response grounding and relevance while aligning outputs to researcher workflows and product quality expectations.",
+      highlights: [
+        "Improved research query understanding and result relevance",
+        "Focused on answer quality, trust, and usability",
+        "Supported rapid iteration through product + AI experimentation",
+      ],
+      links: [{ label: "Product", href: "https://natureresearchassistant.com/" }],
+    },
     {
       name: "Night Hawk — Agentic Data Intelligence Platform",
       tagline: "Streaming agentic analytics for hospital threat hunting",
@@ -274,5 +302,4 @@ export const profile: Profile = {
 };
 
 export default profile;
-
 

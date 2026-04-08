@@ -7,6 +7,7 @@ const links = [
   { href: "#skills", label: "Skills" },
   { href: "#certifications", label: "Certifications" },
   { href: "#writing", label: "Writing" },
+  { href: "#resume", label: "Resume" },
 ];
 
 export function Nav() {
@@ -30,5 +31,4 @@ export function Nav() {
     </nav>
   );
 }
-
 
