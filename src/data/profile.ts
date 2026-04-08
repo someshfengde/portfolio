@@ -43,6 +43,7 @@ export type Profile = {
     github: string;
     linkedin: string;
     portfolio?: string;
+    resume?: string;
     huggingface?: string;
     wandb?: string;
     medium?: string;
@@ -68,15 +69,16 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Somesh Fengade",
-  title: "Machine Learning Engineer — GenAI, Agentic/RAG Systems",
+  title: "AI / ML Engineer — Generative AI & RAG Systems",
   location: "Mumbai / Pune, India",
   email: "someshfengde@gmail.com",
   summary:
-    "Results-driven Machine Learning Engineer with a proven track record in building and deploying cutting-edge GenAI and agentic systems. Expert in designing robust RAG pipelines, advanced LLM tooling, and scalable ML services using FastAPI and state-of-the-art vector databases. Adept at delivering production-ready solutions with strong observability (LangFuse), seamless containerization (Docker), and resilient data infrastructure (MongoDB, Postgres). Versatile across computer vision, NLP, and tabular data, I thrive on solving complex problems and driving innovation from research to real-world impact.",
+    "Results-driven AI / ML Engineer with a proven track record in shipping production Generative AI systems. Strong focus on engineering robust RAG model pipelines, OpenAI-powered workflows, and scalable services on GCP using Cloud Run and Cloud Run Jobs with Terraform. Hands-on with Pinecone, FastAPI, Docker, and data infrastructure (MongoDB, Postgres), with additional experience in experimentation and quality iteration. Versatile across computer vision, NLP, and tabular data, I thrive on solving complex problems and driving innovation from research to real-world impact.",
   links: {
     github: "https://github.com/someshfengde",
     linkedin: "https://linkedin.com/in/somesh-9188",
     portfolio: "https://somesh.gitbook.io/somesh-fengade",
+    resume: "https://drive.google.com/file/d/1KiGvhRCl4p-_ixyXTA2dNgg7n5zYg0ok/view?usp=sharing",
     huggingface: "https://huggingface.co/Someshfengde",
     wandb: "https://wandb.ai/som",
     medium: "https://someshfengde.medium.com/",
@@ -87,12 +89,13 @@ export const profile: Profile = {
   experience: [
       {
       company: "Springer Nature",
-      role: "AI Engineer",
+      role: "AI / ML Engineer",
       location: "Pune, India",
       period: "Oct 2025 - Present",
       bullets: [
-        "Building and deploying advanced AI solutions to address complex researchers queries and optimize data utilization.",
-        "Driving R&D initiatives to explore and productionize the latest in AI/ML, keeping Springer Nature at the forefront.",
+        "Building Nature Research Assistant (natureresearchassistant.com), a Generative AI product that helps researchers discover and synthesize scientific knowledge faster.",
+        "Delivered chat with multiple papers functionality and engineered RAG model pipelines using Pinecone and OpenAI models for grounded, high-utility outputs.",
+        "Owned engineering delivery across Terraform + GCP (Cloud Run, Cloud Run Jobs) and supported weekly newsletter workflows that surface relevant research insights.",
       ],
     },
     {
@@ -132,6 +135,35 @@ export const profile: Profile = {
     },
   ],
   projects: [
+    {
+      name: "Nature Research Assistant",
+      tagline: "AI assistant for faster, reliable scientific discovery",
+      tech: [
+        "LLMs",
+        "RAG",
+        "Pinecone",
+        "OpenAI",
+        "Terraform",
+        "GCP",
+        "Cloud Run",
+        "Cloud Run Jobs",
+      ],
+      description:
+        "Built and shipped product-facing Generative AI capabilities for Springer Nature’s Nature Research Assistant, including chat with multiple papers and production RAG infrastructure.",
+      status: "Active",
+      company: "Springer Nature",
+      role: "AI / ML Engineer",
+      year: "2025 - Present",
+      overview:
+        "Led engineering-heavy delivery for Nature Research Assistant across model integration, retrieval infrastructure, and cloud deployment while iterating through experiments to improve researcher outcomes.",
+      highlights: [
+        "Shipped multi-paper chat experience for researcher workflows",
+        "Built RAG stack with Pinecone + OpenAI models",
+        "Deployed workloads on GCP with Terraform, Cloud Run, and Cloud Run Jobs",
+        "Supported weekly newsletter pipeline with AI-assisted research curation",
+      ],
+      links: [{ label: "Product", href: "https://natureresearchassistant.com/" }],
+    },
     {
       name: "Night Hawk — Agentic Data Intelligence Platform",
       tagline: "Streaming agentic analytics for hospital threat hunting",
@@ -274,5 +306,3 @@ export const profile: Profile = {
 };
 
 export default profile;
-
-
