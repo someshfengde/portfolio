@@ -40,16 +40,16 @@ export function Reveal({ children, delay = 0 }: { children: React.ReactNode; del
 }
 
 export function StaggerList({ as = "div", children }: { as?: "div" | "ul"; children: React.ReactNode }) {
-  const Comp: any = motion[as as "div"] ?? motion.div;
+  const MotionComponent = as === "ul" ? motion.ul : motion.div;
   return (
-    <Comp
+    <MotionComponent
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.15 }}
       variants={staggerContainer}
     >
       {children}
-    </Comp>
+    </MotionComponent>
   );
 }
 
